@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.send("Welcome to the Pollen Mob API!");
+});
+
 app.use("/", feedbackRoutes);
 
 app.listen(PORT, () => {

@@ -1,5 +1,11 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import express from "express";
+import serverless from "serverless-http";
+import { sendFeedback } from "../src/controllers/feedback.controller";
 
-export default function handler(_req: VercelRequest, res: VercelResponse) {
-  res.status(200).send('Welcome to the Pollen Mob API!');
-}
+const app = express();
+app.use(express.json());
+
+// rutas
+app.post("/send-feedback", sendFeedback);
+
+export default serverless(app);

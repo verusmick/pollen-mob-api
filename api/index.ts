@@ -19,13 +19,13 @@ app.get("/", (req, res) => {
 });
 
 // POST — will be available at /api/send-feedback
-app.post("/send-feedback", async (req, res) => {
-  try {
-    await sendFeedback(req, res);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal server error");
-  }
-});
+// app.post("/send-feedback", async (req, res) => {
+//   try {
+//     await sendFeedback(req, res);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).send("Internal server error");
+//   }
+// });
 
 export default serverless(app);

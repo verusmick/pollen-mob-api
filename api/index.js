@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   res.send("Express App Responded");
 });
 
-app.post("/test", async (req, res) => {
+app.post("/send-feedback", async (req, res) => {
   console.log("app.post(");
   if (req.method === "POST") {
     // For POST requests, req.body contains the parsed JSON

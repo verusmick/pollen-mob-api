@@ -5,17 +5,14 @@ import serverless from "serverless-http";
 const app = express();
 app.use(express.json());
 
-// Root GET — will be available at /api
+// this will be available at /api
 app.get("/", (req, res) => {
-  res.send(`
-    <html>
-      <head><title>Pollen API</title></head>
-      <body>
-        <h1>Welcome to Pollen API</h1>
-        <p>Try sending POST requests to <code>/api/send-feedback</code></p>
-      </body>
-    </html>
-  `);
+  res.send("<h1>Welcome to Pollen API</h1>");
+});
+
+// test endpoint /api/hello
+app.get("/hello", (req, res) => {
+  res.json({ message: "Hello from API" });
 });
 
 // POST — will be available at /api/send-feedback

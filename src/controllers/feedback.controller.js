@@ -1,23 +1,23 @@
-import { Request, Response } from "express";
-import transporter from "../config/mailer";
+import transporter from "../config/mailer.js";
 
-interface FeedbackRequestBody {
-  feedback: string;
-  satisfaction: number;
-  improvementSelection: string[];
-}
 
-export const sendFeedback = async (req: Request, res: Response) => {
-  const { feedback, satisfaction, improvementSelection } =
-    req.body as FeedbackRequestBody;
 
+export const sendFeedback = async (req, res) => {
+  console.log('sendFeedback')
+  const { feedback, satisfaction, improvementSelection } = req.body;
+
+   
   if (!feedback || feedback.trim() === "") {
     return res.status(400).json({ message: "Empty feedback" });
   }
+  
+
   const formattedImprovements =
     improvementSelection && improvementSelection.length > 0
-      ? improvementSelection.join(", ")
+      ? improvementSelection.join(", ") 
       : "Not specified";
+       console.log('tete2', req.body)
+
   const emailBody = `
     📩 New Feedback Received:
 
@@ -27,6 +27,7 @@ export const sendFeedback = async (req: Request, res: Response) => {
 
     💡 Areas for improvement: ${formattedImprovements}
     `;
+
   try {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,

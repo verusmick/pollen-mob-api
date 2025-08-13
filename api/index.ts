@@ -1,6 +1,6 @@
 import express from "express";
 import serverless from "serverless-http";
-import { sendFeedback } from "../src/controllers/feedback.controller";
+// import { sendFeedback } from "../src/controllers/feedback.controller";
 
 const app = express();
 app.use(express.json());

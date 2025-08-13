@@ -1,5 +1,6 @@
 const express = require("express");
 const { sendFeedback } = require("../src/controllers/feedback.controller");
+const cors = require("cors");
 const app = express();
 
 app.use(cors());

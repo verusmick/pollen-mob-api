@@ -24,12 +24,12 @@ export const sendFeedback = async (req, res) => {
   //   💡 Areas for improvement: ${formattedImprovements}
   //   `;
 
-  const emailBody = `Hello Developer Team,
-    I would like to share some feedback about the Pollenscience Mobile app.
-
-    Feedback:  
-     ${feedback}
-    Thank you for your attention.`;
+  const emailBody = `
+  <p>Hello Developer Team,</p>
+  <p>I would like to share some feedback about the Pollenscience Mobile app.</p>
+  <p><strong>Feedback:</strong><br>${feedback}</p>
+  <p>Thank you for your attention.</p>
+`;
 
   try {
     await transporter.sendMail({

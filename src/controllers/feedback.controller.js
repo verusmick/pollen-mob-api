@@ -36,7 +36,7 @@ export const sendFeedback = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO,
       subject: "New feedback from Pollenscience Mobile",
-      text: emailBody,
+      html: emailBody,
     });
     res.json({ message: "Feedback sent successfully" });
   } catch (error) {
